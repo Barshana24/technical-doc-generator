@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-cream-100 dark:bg-chocolate-950 text-chocolate-700 dark:text-cream-200 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  pre, code {
+    font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-chocolate-700 dark:text-cream-100;
+  }
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Markdown prose overrides */
+.prose code::before,
+.prose code::after {
+  content: none !important;
+}
+
+.prose pre {
+  @apply bg-chocolate-900 dark:bg-chocolate-950;
+}
+
+.prose table {
+  @apply text-sm;
+}
+
+.prose thead th {
+  @apply bg-cream-200 dark:bg-chocolate-800;
+}
+
+.prose tbody tr {
+  @apply border-cream-400 dark:border-chocolate-700;
+}
+
+/* Page transition overlay used by Layout */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-in-left { animation: slideInLeft 0.25s ease-out; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-caramel-300 dark:bg-chocolate-600 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-caramel-500 dark:bg-chocolate-500; }

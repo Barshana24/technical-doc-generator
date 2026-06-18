@@ -38,5 +38,8 @@ Thumbs.db
 *.suo
 *.user
 
+# TypeScript build cache
+*.tsbuildinfo
+
 # Logs
 *.log
